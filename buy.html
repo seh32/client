@@ -9,32 +9,49 @@
 -->
 <html>
 <head>
-  <title>Calvin BookShelf-buy</title>
-
-<link rel="stylesheet" href="styles.css">
-</head>
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css" media="screen,projection"/>
+  <title>Calvin Bookshelf - Place offer</title>
+  <nav>
+    <div class="nav-wrapper teal lighten-2">
+	  <a href="#" class="brand-logo center">Calvin Bookshelf</a>
+	  <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="index.html">Search</a></li>
+        <li><a href="login.html">Sell</a></li>
+      </ul>
+    </div>
+  </nav>
+ </head>
 
 <body>
-<div id="header">
-  <h1>Welcome to Calvin BookShelf</h1>
-</div>
 
-<div id="nav">
-<a href="index.html">Search</a><br><br>
-<a href="login.html">Sell</a>
-</div>
+	<div class="container" id="main">
+		<br><br>
+		<form action="results.html">
+		Enter your offered price:<br>
+		<input type="text" name="Offered Price:">
+		<br>
+		<button class="btn waves-effect waves-light" type="submit" name="action">Place Offer
+		</button>
+		</form>
+		<br><br>
+	</div>
 
-<div id="main">
-	<form action="results.html">
-Click to place offer:<br>
+	<footer class="page-footer grey darken-2">
+	  <div class="footer">
+		<div class="container">
+		<a class="grey-text text-lighten-4 left" href="about.html">About</a>
+		<br><br>
+		</div>
+	  </div>
+	</footer>
 
-<input type="submit" value="Submit">
-</form>
-</div>
-
-<div id="footer">
-<a href="about.html">About</a>
-</div>
+	<!--Import jQuery before materialize.js-->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
 
 </body>
 
