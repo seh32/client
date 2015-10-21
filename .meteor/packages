@@ -1,5 +1,4 @@
 standard-app-packages
 iron:router
-sacha:spin
 materialize:materialize@0.96.1
 standard-minifiers
