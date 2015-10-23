@@ -1,0 +1,18 @@
+<head>
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <title>Calvin Bookshelf</title>
+</head>
+
+<template name="layout">
+  <header>
+    {{> header}}
+  </header>
+  <main>
+    <div class="container" id="main">
+      {{> yield}}
+    </div>
+  </main>
+  <footer class="page-footer grey darken-2">
+    {{> footer}}
+  </footer>
+</template>

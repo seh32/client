@@ -1,0 +1,13 @@
+<template name="home">
+  <div class="center">
+    <br><br>
+    <h2 class="header col light">Search for a book</h2>
+    <form action="{{pathFor route='results'}}">
+      <input id="book" type="search" required>
+      <br><br>
+      <button class="btn cyan waves-effect waves-light" type="submit" name="action">Submit
+      </button>
+    </form>
+    <br><br>
+  </div>
+</template>
