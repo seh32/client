@@ -19,10 +19,12 @@
         </form>
       </div>
     </div> 
-    <div class="modal-footer">
+     <div class="modal-footer">
       <div class="divider"></div>
+      <form action="{{pathFor route='sell'}}">
       <button class="modal-action modal-close btn-flat waves-effect">Cancel</button>
-      <button class="modal-action modal-close btn-flat waves-effect" type="submit">Login</button> 
+      <button class="modal-action modal-close btn-flat waves-effect" type="submit" name="action">Login</button>
+    </form>
     </div>
   </div>
 </template>
