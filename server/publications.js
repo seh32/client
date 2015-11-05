@@ -1,3 +1,9 @@
+/* This js file returns the elements of our book database after a search is done 
+ * It also adds three dumby books to our database if it is empty
+ *
+ * To do: filter search results based on search parameters
+ *        sort results by price, name, ect.
+ */
 Meteor.publish('bookshelf',function(){
     return Bookshelf.find();
 });

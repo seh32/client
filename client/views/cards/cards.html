@@ -1,3 +1,5 @@
+<!-- Cards template that contains the book template in each card 
+	Used to display search results -->
 <template name="cards">
   {{#if Template.subscriptionsReady}}
     <div class="row">
@@ -10,6 +12,8 @@
   {{/if}}
 </template>
 
+<!-- Each individual book in a search result is one of these.
+	Displays information about the book as a materialize card -->
 <template name="books">
   <div class="col s10 m6 l4">
     <div class="card hoverable medium">

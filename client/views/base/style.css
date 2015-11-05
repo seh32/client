@@ -1,3 +1,6 @@
+/* CSS Sheet that sets the basic styles of the site
+ * Not incredibly important because of our use of materialize and meteor however
+ */
 body {
   background-color: #FCFCFC;
   display: flex;
