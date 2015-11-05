@@ -1,4 +1,3 @@
-<!-- Book sale page. Has fields that can be filled out with book information. -->
 <template name="sell">
   <form action="{{pathFor route='results'}}">
     <div class="container col 12">

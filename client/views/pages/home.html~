@@ -1,4 +1,3 @@
-<!-- Displays the home page. Has a search field and a submit button. -->
 <template name="home">
   <div class="center">
     <br><br>

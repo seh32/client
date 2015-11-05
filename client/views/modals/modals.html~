@@ -1,10 +1,7 @@
-<!-- Wraps the loginmodal template into another template -->
 <template name="modals">
   {{> loginmodal}}
 </template>
 
-<!-- The dialog box for login. Is called from the header when sell is clicked.
-	will eventually link to Calvin login -->
 <template name="loginmodal">
   <div id="loginmodal" class="modal">
     <div class="modal-content">
