@@ -1,5 +1,0 @@
-<template name="footer">
-  <div class="container">
-    <a class="grey-text text-lighten-4 left" href="{{pathFor route='about'}}">About</a>
-  </div>
-</template>
