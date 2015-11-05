@@ -5,26 +5,24 @@
 <template name="loginmodal">
   <div id="loginmodal" class="modal">
     <div class="modal-content">
-      <div class="row">
         <form class="col s12">
-          <h4 class="grey-text text-darken-4 col offset-s3">Login</h4>
-          <div class="input-field col offset-s3 s6">
-            <input id="email" type="email" class="validate">
-            <label for="email">Calvin Email</label>
-          </div>
-          <div class="input-field col offset-s3 s6">
-            <input id="password" type="password" class="validate">
-            <label for="password">Calvin Password</label>
-          </div>
-        </form>
-      </div>
-    </div> 
-     <div class="modal-footer">
-      <div class="divider"></div>
-      <form action="{{pathFor route='sell'}}">
-      <button class="modal-action modal-close btn-flat waves-effect">Cancel</button>
-      <button class="modal-action modal-close btn-flat waves-effect" type="submit" name="action">Login</button>
-    </form>
-    </div>
+			<div class="row">
+			  <h4 class="grey-text text-darken-4 col offset-s3">Login</h4>
+			  <div class="input-field col offset-s3 s6">
+				<input id="email" name="email" type="email" class="validate">
+				<label for="email">Calvin Email</label>
+			  </div>
+			  <div class="input-field col offset-s3 s6">
+				<input id="password" type="password" class="validate">
+				<label for="password">Calvin Password</label>
+			  </div>
+			</div> 
+			<div class="modal-footer">
+			  <div class="divider"></div>
+			  <button class="modal-action modal-close btn-flat waves-effect">Cancel</button>
+			  <button class="modal-action modal-close btn-flat waves-effect" input type="submit">Login</button>
+			</div>
+		</form>
+	</div>
   </div>
 </template>

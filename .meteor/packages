@@ -2,3 +2,5 @@ standard-app-packages
 iron:router
 materialize:materialize@0.96.1
 standard-minifiers
+http
+accounts-ui
