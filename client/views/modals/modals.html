@@ -1,33 +1,47 @@
 <!-- Wraps the loginmodal template into another template -->
 <template name="modals">
   {{> loginmodal}}
+  {{> buymodal}}
 </template>
 
 <!-- The dialog box for login. Is called from the header when sell is clicked.
-	will eventually link to Calvin login -->
+	will eventually validate Calvin login -->
 <template name="loginmodal">
   <div id="loginmodal" class="modal">
     <div class="modal-content">
+    <form class="col s12">
       <div class="row">
-        <form class="col s12">
-          <h4 class="grey-text text-darken-4 col offset-s3">Login</h4>
-          <div class="input-field col offset-s3 s6">
-            <input id="email" type="email" class="validate">
-            <label for="email">Calvin Email</label>
-          </div>
-          <div class="input-field col offset-s3 s6">
-            <input id="password" type="password" class="validate">
-            <label for="password">Calvin Password</label>
-          </div>
-        </form>
+        <h4 class="grey-text text-darken-4 col offset-s3">Login</h4>
+        <div class="input-field col offset-s3 s6">
+          <input id="email" name="email" type="email" class="validate">
+          <label for="email">Calvin Email</label>
+        </div>
+        <div class="input-field col offset-s3 s6">
+          <input id="password" type="password" class="validate">
+          <label for="password">Calvin Password</label>
+        </div>
+      </div> 
+      <div class="modal-footer">
+        <div class="divider"></div>
+        <button class="modal-action modal-close btn-flat waves-effect">Cancel</button>
+        <button class="modal-action modal-close btn-flat waves-effect" input type="submit" formaction={{pathFor route='sell'}}>Login</button>
       </div>
-    </div> 
-     <div class="modal-footer">
-      <div class="divider"></div>
-      <form action="{{pathFor route='sell'}}">
-      <button class="modal-action modal-close btn-flat waves-effect">Cancel</button>
-      <button class="modal-action modal-close btn-flat waves-effect" type="submit" name="action">Login</button>
     </form>
+  </div>
+  </div>
+</template>
+
+<!-- Dialog box to confirm a user buying a book.-->
+<template name="buymodal">
+  <div id="buymodal" class="modal">
+    <div class="modal-content">
+      <h4>Confirm Purchase</h4>
+      <p>Are you sure you want to buy this book? An email will be sent to the seller to notify them of your interest.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat red-text">No Thanks</a>
+      <!-- "Buy Book" will call email function once implemented -->
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Buy Book</a>
     </div>
   </div>
 </template>
