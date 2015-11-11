@@ -34,9 +34,10 @@
         <p class="grey-text">{{author}}</p>
         <p>Here is some more information about this product that is only revealed once clicked on.</p>
         <div class="card-action">
-          <a href="{{pathFor route='login'}}">Make Offer</a>
+          <a class="modal-trigger" href="#buymodal">Buy</a>
         </div>
       </div>
     </div>
   </div>
+  {{> modals}}
 </template>
