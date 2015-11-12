@@ -1,10 +1,9 @@
-<!-- Cards template that contains the book template in each card 
-	Used to display search results -->
+<!-- renders a collection of cards that represent books -->
 <template name="cards">
   {{#if Template.subscriptionsReady}}
     <div class="row">
       {{#each bookshelf}}
-        {{> books}}
+        <div class="col s12 m6 l4">{{> card}}</div>
       {{/each}}
     </div>
   {{else}}
@@ -12,32 +11,42 @@
   {{/if}}
 </template>
 
-<!-- Each individual book in a search result is one of these.
-	Displays information about the book as a materialize card -->
-<template name="books">
-  <div class="col s10 m6 l4">
-    <div class="card hoverable medium">
-      <div class ="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="{{thumbnail}}" alt="{{title}}">
-      </div>
-      <div class="card-content truncate">
-        <span class="card-title activator grey-text text-darken-4">
-          {{title}}
-        </span>
-        <p class="grey-text">{{author}}</p>
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">
-          <i class="material-icons right">close</i>
-          {{title}}
-        </span>
-        <p class="grey-text">{{author}}</p>
-        <p>Here is some more information about this product that is only revealed once clicked on.</p>
-        <div class="card-action">
-          <a class="modal-trigger" href="#buymodal">Buy</a>
-        </div>
+<!-- each individual book is represented on a material card -->
+<template name="card">
+  {{> contactModal cardId=_id}}
+  <div class="card medium">
+    <!-- a thumbnail of the book cover -->
+    <div class ="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="{{thumbnail}}" alt="{{title}}">
+    </div>
+    <!-- the initial content of the card before it is clicked -->
+    <div class="card-content activator">
+      <span class="card-title grey-text text-darken-4" style="line-height:150%">{{title}}</span>
+      <p class="grey-text">{{author}}</p>
+    </div>
+    <!-- the content that's revealed when the card is clicked -->
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4 activator">{{> iconClose}}{{title}}</span>
+      <p class="grey-text">{{author}}</p>
+      {{> placeholderText}}
+      <!-- the footer of the revealed card -->
+      <div class="card-action">
+        {{#if messageSent}}
+          <span class="green-text">MESSAGE SENT</span>
+        {{else}}
+          <a class="modal-trigger" href="#contactModal{{_id}}">CONTACT SELLER</a>
+        {{/if}}
       </div>
     </div>
   </div>
-  {{> modals}}
+</template>
+
+<!-- the material "close" icon -->
+<template name="iconClose">
+  <i class="material-icons right" style="cursor:pointer">close</i><br>
+</template>
+
+<!-- just some temporary placeholder text for the card-reveal -->
+<template name="placeholderText">
+  <p>Here is some more information about this product that is only revealed once clicked on.</p>
 </template>
