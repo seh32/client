@@ -1,47 +1,46 @@
-<!-- Wraps the loginmodal template into another template -->
-<template name="modals">
-  {{> loginmodal}}
-  {{> buymodal}}
-</template>
-
-<!-- The dialog box for login. Is called from the header when sell is clicked.
-	will eventually validate using Calvin login -->
-<template name="loginmodal">
-  <div id="loginmodal" class="modal">
+<!-- a modal that prompts the user to log in -->
+<template name="loginModal">
+  <div id="loginModal" class="modal">
     <div class="modal-content">
-      <form class="col s12">
+      <form id="loginForm" class="col s12">
         <div class="row">
-          <h4 class="grey-text text-darken-4 col offset-s3">Login</h4>
-          <div class="input-field col offset-s3 s6">
-            <input id="email" name="email" type="email" class="validate">
-            <label for="email">Calvin Email</label>
-          </div>
-          <div class="input-field col offset-s3 s6">
-            <input id="password" type="password" class="validate">
-            <label for="password">Calvin Password</label>
-          </div>
-        </div> 
-        <div class="modal-footer">
-          <div class="divider"></div>
-          <button class="modal-action modal-close btn-flat waves-effect">Cancel</button>
-          <button class="modal-action modal-close btn-flat waves-effect" input type="submit" formaction={{pathFor route='sell'}}>Login</button>
+          <h4 class="grey-text text-darken-4 col offset-s2">Login</h4>
+          {{> inputField emailField}}
+          {{> inputField passwordField}}
         </div>
       </form>
+    </div>
+    <div class="modal-footer">
+      {{> button cancelButton}}
+      {{> button loginButton}}
     </div>
   </div>
 </template>
 
-<!-- Dialog box to confirm a user buying a book.-->
-<template name="buymodal">
-  <div id="buymodal" class="modal">
+<!-- a modal that asks the user for confirmation before contacting sender -->
+<template name="contactModal">
+  <div id="contactModal{{cardId}}" class="modal">
     <div class="modal-content">
-      <h4>Confirm Purchase</h4>
-      <p>Are you sure you want to buy this book? An email will be sent to the seller to notify them of your interest.</p>
+      <h4>Are You Sure?</h4>
+      <p>Your email address will be sent to the seller to notify them of your interest.</p>
     </div>
     <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat red-text">No Thanks</a>
-      <!-- "Buy Book" will call email function once implemented -->
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Buy Book</a>
+      {{> button cancelButton}} 
+      {{> button okayButton}}
     </div>
+  </div>
+</template>
+
+<!-- a simple button template that's nice for buttons with many classes -->
+<template name="button">
+  <button {{attr}}>{{label}}</button>
+</template>
+
+<!-- a materializecss input field element with an icon prefix -->
+<template name="inputField">
+  <div class="input-field col s8 offset-s2">
+    <i class="material-icons prefix">{{icon}}</i>
+    <input id="{{type}}" type="{{type}}" name="{{type}}" class="validate">
+    <label for="{{type}}">{{label}}</label>
   </div>
 </template>
