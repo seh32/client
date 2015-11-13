@@ -27,3 +27,12 @@ if (Bookshelf.find().count() === 0) {
     thumbnail: "http://www.languageinindia.com/april2011/essentialenglishfrontcover.jpg"
   });
 }
+
+Meteor.methods({
+  newBook: function (book) {
+    Bookshelf.insert(book);
+  },
+  removeBook: function (id) {
+    Bookshelf.remove(id);
+  }
+})
