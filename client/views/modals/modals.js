@@ -28,7 +28,7 @@ Template.loginModal.events({
 // helper functions that are bound to the loginModal template
 Template.loginModal.helpers({
     emailField: function () {
-        return { 
+        return {
             icon: "account_circle",
             type: "email",
             label: "Calvin Email"

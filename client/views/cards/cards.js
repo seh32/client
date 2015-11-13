@@ -5,8 +5,8 @@ Template.cards.onCreated(function(){
 
 // helper functions bound to the cards template
 Template.cards.helpers({
-    bookshelf: function() { 
-        return Bookshelf.find(); 
+    bookshelf: function() {
+        return Bookshelf.find();
     }
 });
 
