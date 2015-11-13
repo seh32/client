@@ -1,6 +1,6 @@
 <!-- Book sale page. Has fields that can be filled out with book information. -->
 <template name="sell">
-  <form action="{{pathFor route='results'}}">
+  <form action="#">
     <div class="container col 12">
       <div class="row"></div>
       <div class="input-field col offset-s3 s6">
@@ -25,7 +25,7 @@
       </div>
       <div class="row"></div>
       <div class="center-align">
-        <button class="btn waves-effect waves-light cyan" type="submit">
+        <button class="btn waves-effect waves-light cyan modal-trigger" data-target="loginModal" type="submit">
           Sell Book
         </button>
       </div>
