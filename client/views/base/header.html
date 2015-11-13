@@ -2,17 +2,17 @@
 <template name="header">
   <nav class="top-nav cyan">
     <div class="nav-wrapper">
-      <a href="{{pathFor route='home'}}" class="brand-logo left"><img class = "responsive-img" src= "images/Calvin Bookshelf Branding_White Text.png" style="max-height: 54px; padding: 6px; vertical-align: middle;"></a>
-
+      <a href="{{pathFor route='home'}}" class="brand-logo left">
+        <img class="responsive-img" src="images/Calvin Bookshelf Branding_White Text.png" style="max-height: 54px; padding: 6px; vertical-align: middle;">
+      </a>
       <a href="{{pathFor route='home'}}" data-activates="mobile-demo" class="right button-collapse">
         <i class="material-icons">menu</i>
       </a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="{{pathFor route='home'}}">Search</a></li>
-	<!-- This modal trigger opens a login dialog box -->
-        <li><a class="modal-trigger" href="#loginmodal">Sell</a></li>
+        <li><a href="{{pathFor route='sell'}}">Sell</a></li>
       </ul>
     </div>
   </nav>
-  {{> modals}}
+  {{> loginModal}}
 </template>

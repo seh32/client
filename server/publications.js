@@ -1,4 +1,4 @@
-/* This server js file returns the elements of our book collection 
+/* This server js file returns the elements of our book collection
  * It also adds three dumby books to our collection if it is empty
  *
  * To do: filter search results based on search parameters
