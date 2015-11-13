@@ -3,5 +3,6 @@ Template.sell.events({
     'submit #sellForm': function(event) {
         event.preventDefault();
         $('#loginModal').openModal();
+        Router.go('/');
     }
 });
