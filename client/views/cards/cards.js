@@ -1,12 +1,14 @@
 // binds to the cards template when its created
 Template.cards.onCreated(function(){
-  this.subscribe("bookshelf");
+  this.subscribe("books");
 });
 
 // helper functions bound to the cards template
 Template.cards.helpers({
-    bookshelf: function() {
-        return Bookshelf.find();
+    books: function() {
+        b = Books.find({isbn: 9780131409095});
+        console.log(b);
+        return b;
     }
 });
 
@@ -18,8 +20,16 @@ Template.card.onCreated(function() {
 // event handler bound to the card template
 Template.card.events({
     "click .send-message": function(event, template) {
-        template.messageSent.set(true);
-        Materialize.toast("Message Sent", 4000, "rounded");
+        MaterializeModal.confirm({
+            title: "Are you sure?",
+            message: "Your email address will be sent to the seller to notify them of your interest.",
+            callback: function(error, response) {
+                if (response.submit) {
+                    template.messageSent.set(true);
+                    Materialize.toast("Message Sent", 4000, "rounded");
+                }
+            }
+        });
     }
 })
 

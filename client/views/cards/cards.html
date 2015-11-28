@@ -2,18 +2,28 @@
 <template name="cards">
   {{#if Template.subscriptionsReady}}
     <div class="row">
-      {{#each bookshelf}}
+      {{#each books}}
         <div class="col s12 m6 l4">{{> card}}</div>
       {{/each}}
     </div>
   {{else}}
-    Loading...
+    {{> spinner}}
   {{/if}}
+</template>
+
+<!-- a spinner component that indicates that items are loading -->
+<template name="spinner">
+  <div class="preloader-wrapper big active center-align">
+    <div class="spinner-layer spinner-red-only center-align">
+      <div class="circle-clipper left"><div class="circle"></div></div>
+      <div class="gap-patch"><div class="circle"></div></div>
+      <div class="circle-clipper right"><div class="circle"></div></div>
+    </div>
+  </div>
 </template>
 
 <!-- each individual book is represented on a material card -->
 <template name="card">
-  {{> contactModal cardId=_id}}
   <div class="card medium">
     <!-- a thumbnail of the book cover -->
     <div class ="card-image waves-effect waves-block waves-light">
@@ -28,16 +38,14 @@
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4 activator">{{> iconClose}}{{title}}</span>
       <p class="grey-text">{{author}}</p>
-      <p class="grey-text">Edition: {{edition}}</p>
-      <p class="grey-text">${{price}}</p>
-      <p class="grey-text">{{comment}}</p>
-      {{> placeholderText}}
+      <p class="grey-text">Edition: {{edition}}<br>ISBN: {{isbn}}</p>
+      <p class="green-text">{{price}}</p>
       <!-- the footer of the revealed card -->
       <div class="card-action">
         {{#if messageSent}}
           <span class="green-text">MESSAGE SENT</span>
         {{else}}
-          <a class="modal-trigger" href="#contactModal{{_id}}">CONTACT SELLER</a>
+          <a class="send-message" href="#">CONTACT SELLER</a>
         {{/if}}
       </div>
     </div>
@@ -46,7 +54,7 @@
 
 <!-- the material "close" icon -->
 <template name="iconClose">
-  <i class="material-icons right" style="cursor:pointer">close</i><br>
+  <i class="material-icons right" style="cursor:pointer">close</i>
 </template>
 
 <!-- just some temporary placeholder text for the card-reveal -->

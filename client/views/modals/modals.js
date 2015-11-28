@@ -62,6 +62,7 @@ Template.loginModal.helpers({
     }
 });
 
+/*
 // an event handler that's bound to the contactModal template
 Template.contactModal.onRendered(function() {
     $('.modal-trigger').leanModal({
@@ -91,3 +92,4 @@ Template.contactModal.helpers({
         }
     }
 });
+*/
