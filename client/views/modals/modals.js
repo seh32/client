@@ -14,7 +14,6 @@ Template.loginModal.events({
         event.preventDefault();
         var email = event.target.email.value;
         var password = event.target.password.value;
-        $('#loginModal').closeModal();
         Materialize.toast("Logged in as " + email, 2000, 'rounded');
     }
 });
@@ -39,9 +38,8 @@ Template.loginModal.helpers({
         return {
             label: "Login",
             attr: {
-                class: "btn-flat waves-effect",
+                class: "modal-close btn-flat transparent waves-effect waves-green",
                 type: "submit",
-                name: "action",
                 form: "loginForm"
             }
         }
@@ -50,7 +48,7 @@ Template.loginModal.helpers({
         return {
             label: "Cancel",
             attr: {
-                class: "modal-action modal-close btn-flat waves-effect red-text"
+                class: "modal-close btn-flat transparent waves-effect waves-red"
             }
         }
     }
