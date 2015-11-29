@@ -1,8 +1,3 @@
-// a global template helper that logs template data
-Template.registerHelper('log', function(template) {
-    console.log(this);
-});
-
 // binds to the loginModal template when its rendered
 Template.loginModal.onRendered(function() {
     $('.modal-trigger').leanModal({
@@ -19,7 +14,6 @@ Template.loginModal.events({
         event.preventDefault();
         var email = event.target.email.value;
         var password = event.target.password.value;
-        console.log(email+ " (" + password + ")");
         $('#loginModal').closeModal();
         Materialize.toast("Logged in as " + email, 2000, 'rounded');
     }
@@ -61,35 +55,3 @@ Template.loginModal.helpers({
         }
     }
 });
-
-/*
-// an event handler that's bound to the contactModal template
-Template.contactModal.onRendered(function() {
-    $('.modal-trigger').leanModal({
-        dismissible: true, // Modal can be dismissed by clicking outside of the modal
-        opacity: .5,       // Opacity of modal background
-        in_duration: 300,  // Transition in duration in milliseconds
-        out_duration: 300  // Transition out duration in milliseconds
-    });
-});
-
-// helper functions that are bound to the contactModal template
-Template.contactModal.helpers({
-    okayButton: function() {
-        return {
-            label: "Okay",
-            attr: {
-                class: "modal-action modal-close send-message btn-flat waves-effect",
-            }
-        }
-    },
-    cancelButton: function () {
-        return {
-            label: "Cancel",
-            attr: {
-                class: "modal-action modal-close btn-flat waves-effect red-text"
-            }
-        }
-    }
-});
-*/
