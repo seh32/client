@@ -2,9 +2,9 @@
 <template name="loginModal">
   <div id="loginModal" class="modal">
     <div class="modal-content">
+      <h3 class="grey-text text-darken-4 center-align">Login</h3>
       <form id="loginForm" class="col s12">
         <div class="row">
-          <h4 class="grey-text text-darken-4 col offset-s2">Login</h4>
           {{> inputField emailField}}
           {{> inputField passwordField}}
         </div>
@@ -13,20 +13,6 @@
     <div class="modal-footer">
       {{> button cancelButton}}
       {{> button loginButton}}
-    </div>
-  </div>
-</template>
-
-<!-- a modal that asks the user for confirmation before contacting sender -->
-<template name="contactModal">
-  <div id="contactModal{{cardId}}" class="modal">
-    <div class="modal-content">
-      <h4>Are You Sure?</h4>
-      <p>Your email address will be sent to the seller to notify them of your interest.</p>
-    </div>
-    <div class="modal-footer">
-      {{> button cancelButton}}
-      {{> button okayButton}}
     </div>
   </div>
 </template>

@@ -1,1 +1,2 @@
-Meteor.subscribe('bookshelf');
+Meteor.subscribe('books');
+Meteor.subscribe('classes');

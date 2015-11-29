@@ -4,3 +4,4 @@ materialize:materialize@0.96.1
 standard-minifiers
 reactive-var
 msavin:mongol
+meteorstuff:materialize-modal

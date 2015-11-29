@@ -9,7 +9,7 @@ Template.sell.events({
         var author = event.target.author.value;
         var price = event.target.price.value;
         var comment = event.target.comments.value;
-        //call the server side method that has access to the Bookshelf collection
+        //call the server side method that has access to the Books collection
         Meteor.call('newBook', {            
             title: title,
             author: author,
