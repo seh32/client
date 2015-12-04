@@ -5,3 +5,4 @@ standard-minifiers
 reactive-var
 msavin:mongol
 meteorstuff:materialize-modal
+tdamsma:meteor-accounts-ldap

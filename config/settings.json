@@ -1,0 +1,17 @@
+{
+    "ldap": {
+        "debug": true,
+        "domain": "ad.calvin.edu",
+        "baseDn": "DC=ad,DC=calvin,DC=edu",
+        "url": "ldap://ad.calvin.edu:389",
+        "bindCn": "CN=seh32,OU=CalvinUsers,DC=ad,DC=calvin,DC=edu",
+        "bindPassword": "afyonkarahisar1",
+        "autopublishFields": [
+            "displayName",
+            "givenName"
+        ],
+        "groupMembership": [
+            "Students"
+        ]
+    }
+}
