@@ -1,22 +1,53 @@
 <!-- a modal that prompts the user to log in -->
 <template name="loginModal">
   <div id="loginModal" class="modal">
-    {{> ldapLogin}}
-    <!-- <div class="modal-content">
-      <h3 class="grey-text text-darken-4 center-align">Login</h3>
-      <form id="loginForm" class="col s12">
-        <div class="row">
-          {{> inputField emailField}}
-          {{> inputField passwordField}}
-        </div>
-      </form>
-    </div>
-    <div class="modal-footer">
-      {{> button cancelButton}}
-      {{> button loginButton}}
-    </div> -->
+    {{> myLdapLogin}}
   </div>
 </template>
+
+<!--a template that replaces ldapLogin from tdamsma:meteor-accounts-ldap package with nicer UI-->
+<template name="myLdapLogin">
+<!--temporary if currently logged in pop up that will be removed eventually-->
+{{#if currentUser}}
+  <div class="navbar-username" style="inline-block">Welcome, {{currentUser.username}}. <button class="btn-flat transparent waves-effect waves-red" name="logout">Logout</button></div>
+{{else}}
+  {{#if loggingIn}}
+    <div class="logging-in">
+      Logging in...
+    </div>
+  {{else}}
+    <div class="modal-content">
+      <h3 class="grey-text text-darken-4 center-align">Login</h3>
+      <form name="loginForm" class="col s12">
+        <!--input names must be ldap and password respectively for tdamsma:meteor-accounts-ldap package-->
+        <div row>
+          <div class="input-field col s8 offset-s2">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="email" type="text" name="ldap" class="validate" required>
+            <label for="ldap">Calvin Username</label>
+          </div>
+          <div class="input-field col s8 offset-s2">
+            <i class="material-icons prefix">lock</i>
+            <input id="password" type="password" name="password" class="validate" required>
+            <label for="password">Calvin Password</label>
+          </div>
+        </div>
+      </form>
+      <h6 class="grey-text text-lighten-1 center-align">*Don't worry, we don't save your password</h6>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-flat transparent waves-effect waves-red modal-close">Cancel</button>
+      <button class="btn-flat transparent waves-effect waves-green" name="login" type="submit" form="loginForm">Login</button>
+    </div>
+    {{#if failedLogin}}
+      <div class="loginError">
+        <span style="color:red">Invalid Username or Password.</span>
+      </div>
+    {{/if}}
+  {{/if}}
+{{/if}}
+</template>
+
 
 <!-- a simple button template that's nice for buttons with many classes -->
 <template name="button">
