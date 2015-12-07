@@ -1,7 +1,7 @@
 <!-- Website Header. Contains Buy and Sell links.  -->
 <template name="header">
   <nav class="top-nav cyan">
-    <div class="nav-wrapper">
+    <div id="nav" class="nav-wrapper">
       <a href="{{pathFor route='home'}}" class="brand-logo left">
         <img class="responsive-img" src="images/Calvin Bookshelf Branding_White Text.png" style="max-height: 54px; padding: 6px; vertical-align: middle;">
       </a>
@@ -9,10 +9,23 @@
         <i class="material-icons">menu</i>
       </a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="{{pathFor route='home'}}">Search</a></li>
-        <li><a href="{{pathFor route='sell'}}">Sell</a></li>
+        <li><a href="{{pathFor route='sell'}}">Sell Book</a></li>
+        {{#if currentUser}}
+        <!-- dropdown trigger currently not working -->
+        <li><a class='dropdown-button btn-flat white-text' href='#' data-activates='userAccountDropdown'>Hi, {{currentUser.username}}</a></li>
+        <!-- Dropdown Structure -->
+        <ul id='userAccountDropdown' class='dropdown-content'>
+          <li><a href="{{pathFor route='account'}}">My Account</a></li>
+          <!-- log out function to be implemented eventually-->
+          <li><a href="#!">Log out</a></li>
+        </ul>
+        {{else}}
+        <!--loginModal trigger currently not working-->
+        <li><a href="#" name="login">Log in</a></li>
+        {{/if}}
       </ul>
     </div>
   </nav>
   {{> loginModal}}
 </template>
+        
