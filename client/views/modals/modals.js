@@ -8,15 +8,10 @@ Template.loginModal.onRendered(function() {
     });
 });
 
-// an event handler that's bound to the loginModal template
-Template.loginModal.events({
-    "submit #loginForm": function (event) {
-        event.preventDefault();
-        var email = event.target.email.value;
-        var password = event.target.password.value;
-        Materialize.toast("Logged in as " + email, 2000, 'rounded');
-    }
-});
+// modified myLdapLogin template inherits from ldapLogin of tdamsma:meteor-accounts-ldap package
+Template.myLdapLogin.inheritsHelpersFrom("ldapLogin");
+Template.myLdapLogin.inheritsEventsFrom("ldapLogin");
+Template.myLdapLogin.inheritsHooksFrom("ldapLogin");
 
 // helper functions that are bound to the loginModal template
 Template.loginModal.helpers({
@@ -24,6 +19,7 @@ Template.loginModal.helpers({
         return {
             icon: "account_circle",
             type: "email",
+            name: "ldap",
             label: "Calvin Email"
         }
     },
@@ -31,6 +27,7 @@ Template.loginModal.helpers({
         return {
             icon: "lock",
             type: "password",
+            name: "password",
             label: "Calvin Password"
         }
     },
