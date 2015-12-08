@@ -1,13 +1,12 @@
 // binds to the cards template when its created
 Template.cards.onCreated(function(){
-  this.subscribe("books");
+    this.subscribe("books");
 });
 
 // helper functions bound to the cards template
 Template.cards.helpers({
     books: function() {
-        b = Books.find({isbn: 9780131409095});
-        console.log(b);
+        b = Books.find();
         return b;
     }
 });
@@ -30,6 +29,9 @@ Template.card.events({
                 }
             }
         });
+    },
+    "click #remove-button": function(event, template) {
+        Meteor.call("removeBook", template.data._id);
     }
 })
 

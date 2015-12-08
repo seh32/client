@@ -13,11 +13,13 @@
 
 <!-- a spinner component that indicates that items are loading -->
 <template name="spinner">
-  <div class="preloader-wrapper big active center-align">
-    <div class="spinner-layer spinner-red-only center-align">
-      <div class="circle-clipper left"><div class="circle"></div></div>
-      <div class="gap-patch"><div class="circle"></div></div>
-      <div class="circle-clipper right"><div class="circle"></div></div>
+  <div class="center" style="margin-top:20%">
+    <div class="preloader-wrapper big active">
+      <div class="spinner-layer spinner-red-only" style="border-color:#EF4036">
+        <div class="circle-clipper left"><div class="circle"></div></div>
+        <div class="gap-patch"><div class="circle"></div></div>
+        <div class="circle-clipper right"><div class="circle"></div></div>
+      </div>
     </div>
   </div>
 </template>
@@ -37,9 +39,10 @@
     <!-- the content that's revealed when the card is clicked -->
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4 activator">{{> iconClose}}{{title}}</span>
-      <p class="grey-text">{{author}}</p>
-      <p class="grey-text">Edition: {{edition}}<br>ISBN: {{isbn}}</p>
-      <p class="green-text">{{price}}</p>
+      <p class="grey-text">Author: {{author}}<br>Edition: {{edition}}<br>ISBN: {{isbn}}</p>
+      <p class="grey-text">{{comment}}</p>
+      <p class="green-text">${{price}}</p>
+      {{#if removable}}<a id="remove-button" href="#">remove</a>{{/if}}
       <!-- the footer of the revealed card -->
       <div class="card-action">
         {{#if messageSent}}

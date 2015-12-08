@@ -1,11 +1,11 @@
 <!-- Book sale page. Has fields that can be filled out with book information. -->
 <template name="sell">
-  <form id="sellForm">
+  <form id="sellForm" action="{{pathFor route='home'}}">
     <div class="container col 12">
       <div class="row"></div>
       <h4 class="light">Sell your book:</h4>
       <div class="input-field col offset-s3 s6">
-        <input id="title" type="text" class="validate">
+        <input id="title" type="text" class="validate" required>
         <label for="title">Title</label>
       </div>
       <div class="input-field col offset-s3 s6">
@@ -13,11 +13,11 @@
         <label for="edition">Edition</label>
       </div>
       <div class="input-field col offset-s3 s6">
-        <input id="author" type="text" class="validate">
+        <input id="author" type="text" class="validate" required>
         <label for="author">Author</label>
       </div>
       <div class="input-field col offset-s3 s6">
-        <input id="price" type="text" class="validate">
+        <input id="price" type="text" class="validate" pattern="^\$?\d+(\.\d\d)?$" required>
         <label for="price">Price</label>
       </div>
       <div class="input-field col offset-s3 s6">
@@ -26,9 +26,7 @@
       </div>
       <div class="row"></div>
       <div class="center-align">
-        <button class="btn waves-effect waves-light cyan">
-          Sell Book
-        </button>
+        <button class="btn waves-effect waves-light cyan" type="submit">Sell Book</button>
       </div>
     </div>
   </form>
