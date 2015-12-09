@@ -24,6 +24,16 @@ Template.card.events({
             message: "Your email address will be sent to the seller to notify them of your interest.",
             callback: function(error, response) {
                 if (response.submit) {
+                     // client part of email; asynchronously send an email
+                    //Order: to, from, subject, text.
+                    //replace the from with calvinbookshelf and to with the seller
+                    Meteor.call('sendEmail',
+                          '<seller>@students.calvin.edu',
+                          'calvinbookshelf',
+                         'You have an offer',
+                        '{{currentUser.username}}' + ' would like to purchase ' + template.data.title + 
+                        ' Please contact your customer at: ' + '{{currentUser.username}}' + '@students.calvin.edu to make a profit'
+                        );
                     template.messageSent.set(true);
                     Materialize.toast("Message Sent", 4000, "rounded");
                 }

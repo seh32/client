@@ -4,8 +4,8 @@
         "domain": "ad.calvin.edu",
         "baseDn": "DC=ad,DC=calvin,DC=edu",
         "url": "ldap://ad.calvin.edu:389",
-        "bindCn": "CN=adminuser,OU=CalvinUsers,DC=ad,DC=calvin,DC=edu",
-        "bindPassword": "adminpassword",
+        "bindCn": "CN=lct6,OU=CalvinUsers,DC=ad,DC=calvin,DC=edu",
+        "bindPassword": "jk",
         "autopublishFields": [
             "displayName",
             "givenName"

@@ -11,6 +11,24 @@ Meteor.publish('classes', function() {
     return Classes.find();
 });
 
+//server part of email function
+Meteor.methods({
+  sendEmail: function (to, from, subject, text) {
+    check([to, from, subject, text], [String]);
+
+    // Let other method calls from the same client start running,
+    // without waiting for the email sending to complete.
+    this.unblock();
+
+    Email.send({
+      to: to,
+      from: from,
+      subject: subject,
+      text: text
+    });
+  }
+});
+
 if (Books.find().count() === 0) {
   Books.insert({
     title: "Fundamentals of Chemistry",
