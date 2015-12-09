@@ -20,6 +20,7 @@ Template.sell.events({
                 user: Meteor.userId(),
                 // currently uploads "no image" photo until we get thumbnail system set up
                 thumbnail: "http://www.stjordalfoto.no/templates/clean/images/no_image.png"});
+            (Materialize.toast(title + " added", 2000, 'rounded'))
         } else {
         $('#loginModal').openModal();
         }
