@@ -27,11 +27,11 @@ Template.card.events({
                     //Order: to, from, subject, text.
                     //replace the from with calvinbookshelf and to with the seller
                     Meteor.call('sendEmail',
-                          '<seller>@students.calvin.edu',
+                          template.data.user +'@students.calvin.edu',
                           'calvinbookshelf',
                          'You have an offer',
-                        '{{currentUser.username}}' + ' would like to purchase ' + template.data.title + 
-                        ' Please contact your customer at: ' + '{{currentUser.username}}' + '@students.calvin.edu to make a profit'
+                        Meteor.user().username + ' would like to purchase "' + template.data.title + '."' +
+                         '\n' + 'Please contact your customer at ' + Meteor.user().username + '@students.calvin.edu.'
                         );
                     template.messageSent.set(true);
                     Materialize.toast("Message Sent", 4000, "rounded");
