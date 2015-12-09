@@ -17,7 +17,7 @@ Template.sell.events({
                 price: ( (price.charAt(0) == '$') ? price.substr(1) : price ),
                 comment: comment,
                 removable: true,
-                user: Meteor.userId(),
+                user: Meteor.user().username,
                 // currently uploads "no image" photo until we get thumbnail system set up
                 thumbnail: "http://www.stjordalfoto.no/templates/clean/images/no_image.png"});
             (Materialize.toast(title + " added", 2000, 'rounded'))
