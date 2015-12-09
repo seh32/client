@@ -3,6 +3,16 @@
   <div class="container">
     <div class="row">
       <h3 class="header center-align">My Books:</h3>
+        {{#if Template.subscriptionsReady}}
+		    <div class="row">
+		      {{#each books}}
+		      	<!--cards until we implement new display method-->
+		        <div class="col s12 m6 l4">{{> card}}</div>
+		      {{/each}}
+		    </div>
+  		  {{else}}
+    		  {{> spinner}}
+  		  {{/if}}
     </div>
   </div>
 </template>

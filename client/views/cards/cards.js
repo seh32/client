@@ -6,8 +6,7 @@ Template.cards.onCreated(function(){
 // helper functions bound to the cards template
 Template.cards.helpers({
     books: function() {
-        b = Books.find();
-        return b;
+        return Books.find();
     }
 });
 
@@ -49,5 +48,8 @@ Template.card.events({
 Template.card.helpers({
     messageSent: function() {
         return Template.instance().messageSent.get();
+    },
+    myBook: function() {
+        return this.user == Meteor.userId();
     }
 });

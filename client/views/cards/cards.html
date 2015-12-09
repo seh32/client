@@ -47,9 +47,11 @@
       <div class="card-action">
         {{#if messageSent}}
           <span class="green-text">MESSAGE SENT</span>
+        {{else}} {{#if myBook}}
+          <a class="blue-text">REMOVE BOOK</a>
         {{else}}
           <a class="send-message" href="#">CONTACT SELLER</a>
-        {{/if}}
+        {{/if}} {{/if}}
       </div>
     </div>
   </div>
@@ -64,3 +66,4 @@
 <template name="placeholderText">
   <p>Here is some more information about this product that is only revealed once clicked on.</p>
 </template>
+

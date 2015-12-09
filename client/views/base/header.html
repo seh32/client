@@ -11,16 +11,15 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="{{pathFor route='sell'}}">Sell Book</a></li>
         {{#if currentUser}}
-        <!-- dropdown trigger currently not working -->
+        <li><a href="#" onClick="Meteor.logout()">Logout</a></li>
+        <!-- dropdown trigger currently not working
         <li><a class='dropdown-button btn-flat white-text' href='#' data-activates='userAccountDropdown'>Hi, {{currentUser.username}}</a></li>
-        <!-- Dropdown Structure -->
+        //Dropdown Structure
         <ul id='userAccountDropdown' class='dropdown-content'>
           <li><a href="{{pathFor route='account'}}">My Account</a></li>
-          <!-- log out function to be implemented eventually-->
-          <li><a href="#!">Log out</a></li>
-        </ul>
+          <li><a href="#" onClick="Meteor.logout()">Log out</a></li>
+        </ul>-->
         {{else}}
-        <!--loginModal trigger currently not working-->
         <li><a href="#" name="login">Log in</a></li>
         {{/if}}
       </ul>
