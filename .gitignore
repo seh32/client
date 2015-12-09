@@ -37,7 +37,3 @@ ehthumbs.db
 Thumbs.db
 *~
 *.bak
-
-# Our Settings File (to avoid uploading personal credentials) #
-###############################################################
-lib/settings.json
