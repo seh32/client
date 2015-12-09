@@ -7,9 +7,10 @@
 
 <!--a template that replaces ldapLogin from tdamsma:meteor-accounts-ldap package with nicer UI-->
 <template name="myLdapLogin">
-<!--temporary if currently logged in pop up that will be removed eventually-->
 {{#if currentUser}}
-  <div class="navbar-username" style="inline-block">Welcome, {{currentUser.username}}. <button class="btn-flat transparent waves-effect waves-red" name="logout">Logout</button></div>
+  <div class="welcome">
+    <h5 class="grey-text text-darken-4 center-align">Welcome, {{currentUser.username}}!</h5>
+  </div>
 {{else}}
   {{#if loggingIn}}
     <div class="logging-in">
