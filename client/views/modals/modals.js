@@ -8,45 +8,44 @@ Template.loginModal.onRendered(function() {
     });
 });
 
-// modified myLdapLogin template inherits from ldapLogin of tdamsma:meteor-accounts-ldap package
+// myLdapLogin template inherits from ldapLogin and loginModal
 Template.myLdapLogin.inheritsHelpersFrom("ldapLogin");
-Template.myLdapLogin.inheritsEventsFrom("ldapLogin");
+Template.myLdapLogin.inheritsEventsFrom("loginModal");
 Template.myLdapLogin.inheritsHooksFrom("ldapLogin");
 
-// helper functions that are bound to the loginModal template
-Template.loginModal.helpers({
-    emailField: function () {
-        return {
-            icon: "account_circle",
-            type: "email",
-            name: "ldap",
-            label: "Calvin Email"
+Template.loginModal.events({
+    'click button[name="login"]': function(e, tpl) {
+        e.preventDefault();
+        initLogin(e, tpl);
+    },
+    'keyup input': function(e, tpl) {
+        e.preventDefault();
+        if (e.keyCode == 13) { // enter key is pressed
+            firstAttempt = true;
+            initLogin(e, tpl);
         }
     },
-    passwordField: function () {
-        return {
-            icon: "lock",
-            type: "password",
-            name: "password",
-            label: "Calvin Password"
-        }
-    },
-    loginButton: function () {
-        return {
-            label: "Login",
-            attr: {
-                class: "modal-close btn-flat transparent waves-effect waves-green",
-                type: "submit",
-                form: "loginForm"
-            }
-        }
-    },
-    cancelButton: function () {
-        return {
-            label: "Cancel",
-            attr: {
-                class: "modal-close btn-flat transparent waves-effect waves-red"
-            }
-        }
+    'click button[name="logout"]': function(e) {
+        firstAttempt = true;
+        Meteor.logout();
     }
 });
+
+// initiate login process
+initLogin = function(e, tpl) {
+    // find username and password from input fields
+    var username = $(tpl.find('input[name="ldap"]')).val();
+    var password = $(tpl.find('input[name="password"]')).val();
+
+    // if trying to login as dev account
+    if (username === "dev")
+        var result = Meteor.loginWithPassword(username, password, function(error) {
+            return error ? false : true;
+        });
+    // otherwise, use LDAP authentication
+    else
+        var result = Meteor.loginWithLdap(username, password, function() {
+            return Meteor.userId() ? true : false;
+        });
+    return result;
+}
