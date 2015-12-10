@@ -18,20 +18,29 @@ Template.card.onCreated(function() {
 // event handler bound to the card template
 Template.card.events({
     "click .send-message": function(event, template) {
-        MaterializeModal.confirm({
-            title: "Are you sure?",
-            message: "Your email address will be sent to the seller to notify them of your interest.",
+        MaterializeModal.prompt({
+            title: "Compose message and click submit",
+            message: "This field is optional",
             callback: function(error, response) {
-                if (response.submit) {
-                     // client part of email; asynchronously send an email
-                    //Order: to, from, subject, text.
-                    //replace the from with calvinbookshelf and to with the seller
+                //default message to be sent
+                mes = Meteor.user().username + ' would like to purchase "' + template.data.title + '."' +
+                '\n' + 'Please contact your customer at ' + Meteor.user().username + '@students.calvin.edu.';
+
+                //default message with the custom message tagged on to the end
+                if(response.value){
+                     mes =  Meteor.user().username + ' would like to purchase "' + template.data.title + '."' +
+                            '\n' + 'Please contact your customer at ' + Meteor.user().username + '@students.calvin.edu.'
+                            + '\n' + Meteor.user().username + ' says:' + '\n' + response.value
+                     }
+                //sends the email message to the server
+                if (response.submit) {    
+                     // client part of email
+                     // Order: to, from, subject, text.
                     Meteor.call('sendEmail',
-                          template.data.user +'@students.calvin.edu',
+                          template.data.user + '@students.calvin.edu',
                           'calvinbookshelf',
-                         'You have an offer',
-                        Meteor.user().username + ' would like to purchase "' + template.data.title + '."' +
-                         '\n' + 'Please contact your customer at ' + Meteor.user().username + '@students.calvin.edu.'
+                          'You have an offer',
+                           mes
                         );
                     template.messageSent.set(true);
                     Materialize.toast("Message Sent", 4000, "rounded");
