@@ -7,59 +7,44 @@
 
 <!--a template that replaces ldapLogin from tdamsma:meteor-accounts-ldap package with nicer UI-->
 <template name="myLdapLogin">
-{{#if currentUser}}
-  <div class="welcome">
-    <h5 class="grey-text text-darken-4 center-align">Welcome, {{currentUser.username}}!</h5>
-  </div>
-{{else}}
-  {{#if loggingIn}}
-    <div class="logging-in">
-      Logging in...
+  {{#if currentUser}}
+    <div class="welcome">
+      <h5 class="grey-text text-darken-4 center-align">Welcome, {{currentUser.username}}!</h5>
     </div>
   {{else}}
-    <div class="modal-content">
-      <h3 class="grey-text text-darken-4 center-align">Login</h3>
-      <form name="loginForm" class="col s12">
-        <!--input names must be ldap and password respectively for tdamsma:meteor-accounts-ldap package-->
-        <div row>
-          <div class="input-field col s8 offset-s2">
-            <i class="material-icons prefix">account_circle</i>
-            <input id="email" type="text" name="ldap" class="validate" required>
-            <label for="ldap">Calvin Username</label>
-          </div>
-          <div class="input-field col s8 offset-s2">
-            <i class="material-icons prefix">lock</i>
-            <input id="password" type="password" name="password" class="validate" required>
-            <label for="password">Calvin Password</label>
-          </div>
-        </div>
-      </form>
-      <h6 class="grey-text text-lighten-1 center-align">*Don't worry, we don't save your password</h6>
-    </div>
-    <div class="modal-footer">
-      <button class="btn-flat transparent waves-effect waves-red modal-close">Cancel</button>
-      <button class="btn-flat transparent waves-effect waves-green" name="login" type="submit" form="loginForm">Login</button>
-    </div>
-    {{#if failedLogin}}
-      <div class="loginError">
-        <span style="color:red">Invalid Username or Password.</span>
+    {{#if loggingIn}}
+      <div class="logging-in">
+        Logging in...
       </div>
+    {{else}}
+      <div class="modal-content">
+        <h3 class="grey-text text-darken-4 center-align">Login</h3>
+        <form id="loginForm" class="col s12">
+          <!--input names must be ldap and password respectively for tdamsma:meteor-accounts-ldap package-->
+          <div row>
+            <div class="input-field col s8 offset-s2">
+              <i class="material-icons prefix">account_circle</i>
+              <input id="email" type="text" name="ldap" class="validate" required>
+              <label for="ldap">Calvin Username</label>
+            </div>
+            <div class="input-field col s8 offset-s2">
+              <i class="material-icons prefix">lock</i>
+              <input id="password" type="password" name="password" class="validate" required>
+              <label for="password">Calvin Password</label>
+            </div>
+          </div>
+        </form>
+        <h6 class="grey-text text-lighten-1 center-align">*Don't worry, we don't save your password</h6>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-flat transparent waves-effect waves-red modal-close">Cancel</button>
+        <button class="btn-flat transparent waves-effect waves-green" name="login" type="submit" form="loginForm">Login</button>
+      </div>
+      {{#if failedLogin}}
+        <div class="loginError">
+          <span style="color:red">Invalid Username or Password.</span>
+        </div>
+      {{/if}}
     {{/if}}
   {{/if}}
-{{/if}}
-</template>
-
-
-<!-- a simple button template that's nice for buttons with many classes -->
-<template name="button">
-  <button {{attr}}>{{label}}</button>
-</template>
-
-<!-- a materializecss input field element with an icon prefix -->
-<template name="inputField">
-  <div class="input-field col s8 offset-s2">
-    <i class="material-icons prefix">{{icon}}</i>
-    <input id="{{type}}" type="{{type}}" name="{{type}}" class="validate" required>
-    <label for="{{type}}">{{label}}</label>
-  </div>
 </template>

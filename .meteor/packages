@@ -8,3 +8,4 @@ meteorstuff:materialize-modal
 tdamsma:meteor-accounts-ldap
 aldeed:template-extension
 email
+accounts-password
