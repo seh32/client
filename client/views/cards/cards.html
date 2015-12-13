@@ -42,13 +42,12 @@
       <p class="grey-text">Author: {{author}}<br>Edition: {{edition}}<br>ISBN: {{isbn}}</p>
       <p class="grey-text">{{comment}}</p>
       <p class="green-text">${{price}}</p>
-      {{#if removable}}<a id="remove-button" href="#">remove</a>{{/if}}
       <!-- the footer of the revealed card -->
       <div class="card-action">
         {{#if messageSent}}
           <span class="green-text">MESSAGE SENT</span>
         {{else}} {{#if myBook}}
-          <a class="blue-text">REMOVE BOOK</a>
+          <a class="remove-book blue-text" href="#">REMOVE BOOK</a>
         {{else}}
           <a class="send-message" href="#">CONTACT SELLER</a>
         {{/if}} {{/if}}
