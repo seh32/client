@@ -9,3 +9,4 @@ tdamsma:meteor-accounts-ldap
 aldeed:template-extension
 email
 accounts-password
+easy:search
