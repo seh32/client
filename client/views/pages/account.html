@@ -3,6 +3,7 @@
   <div class="container">
     <div class="row">
       <h3 class="header center-align">My Books:</h3>
+      {{#if currentUser}}
         {{#if Template.subscriptionsReady}}
 		    <div class="row">
 		      {{#each books}}
@@ -13,6 +14,9 @@
   		  {{else}}
     		  {{> spinner}}
   		  {{/if}}
+        {{else}}
+        <h5>Oh no! You're not logged in. Please log in to see your books.</h5>
+        {{/if}}
     </div>
   </div>
 </template>
