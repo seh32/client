@@ -5,3 +5,13 @@ Template.header.events({
         $('#loginModal').openModal();
     }
 });
+
+Template.menuButton.onRendered(function(){
+    this.$(".dropdown-button").dropdown({
+	belowOrigin: true,
+	hover: false,
+	constrain_width: false,
+	alignment: 'right'
+    });
+});
+
