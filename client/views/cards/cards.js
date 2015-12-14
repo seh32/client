@@ -23,7 +23,7 @@ Template.card.events({
             message: "This field is optional",
             callback: function(error, response) {
                 var customerName = Meteor.user().username;
-                var customerEmail = username + '@students.calvin.edu';
+                var customerEmail = Meteor.user().username + '@students.calvin.edu';
                 var sellerEmail = template.data.user + '@students.calvin.edu';
                 var title = template.data.title;
 
