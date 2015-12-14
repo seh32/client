@@ -18,6 +18,7 @@ Template.card.onCreated(function() {
 // event handler bound to the card template
 Template.card.events({
     "click .send-message": function(event, template) {
+            if (Meteor.user()) {
         MaterializeModal.prompt({
             title: "Compose message and click submit",
             message: "This field is optional",
@@ -44,10 +45,14 @@ Template.card.events({
                 }
             }
         });
+            } else {
+        $('#loginModal').openModal();
+        }
     },
     "click .remove-book": function(event, template) {
         Meteor.call("removeBook", template.data._id);
     }
+
 })
 
 // helper functions bound to the card template
