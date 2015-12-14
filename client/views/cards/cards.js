@@ -48,7 +48,7 @@ Template.card.events({
             }
         });
     },
-    "click #remove-button": function(event, template) {
+    "click .remove-book": function(event, template) {
         Meteor.call("removeBook", template.data._id);
     }
 })
@@ -59,6 +59,6 @@ Template.card.helpers({
         return Template.instance().messageSent.get();
     },
     myBook: function() {
-        return this.user == Meteor.userId();
+        return this.user == Meteor.user().username;
     }
 });
