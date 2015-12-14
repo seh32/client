@@ -22,26 +22,23 @@ Template.card.events({
             title: "Compose message and click submit",
             message: "This field is optional",
             callback: function(error, response) {
-                //default message to be sent
-                mes = Meteor.user().username + ' would like to purchase "' + template.data.title + '."' +
-                '\n' + 'Please contact your customer at ' + Meteor.user().username + '@students.calvin.edu.';
+                var customerName = Meteor.user().username;
+                var customerEmail = username + '@students.calvin.edu';
+                var sellerEmail = template.data.user + '@students.calvin.edu';
+                var title = template.data.title;
 
-                //default message with the custom message tagged on to the end
-                if(response.value){
-                     mes =  Meteor.user().username + ' would like to purchase "' + template.data.title + '."' +
-                            '\n' + 'Please contact your customer at ' + Meteor.user().username + '@students.calvin.edu.'
-                            + '\n' + Meteor.user().username + ' says:' + '\n' + response.value
-                     }
-                //sends the email message to the server
-                if (response.submit) {    
-                     // client part of email
-                     // Order: to, from, subject, text.
-                    Meteor.call('sendEmail',
-                          template.data.user + '@students.calvin.edu',
-                          'calvinbookshelf',
-                          'You have an offer',
-                           mes
-                        );
+                // default message to be sent
+                var message = customerName + ' would like to purchase "' + title +
+                    '".\nPlease contact your customer at ' + customerEmail;
+
+                // default message with the custom message tagged on to the end
+                if(response.value)
+                    message += '\n' + customerName + ' says:\n' + response.value;
+
+                // sends the email message to the server
+                if (response.submit) {
+                    Meteor.call('sendEmail', sellerEmail, 'calvinbookshelf',
+                                'You have an offer!', message);
                     template.messageSent.set(true);
                     Materialize.toast("Message Sent", 4000, "rounded");
                 }

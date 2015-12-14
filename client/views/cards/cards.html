@@ -33,7 +33,7 @@
     </div>
     <!-- the initial content of the card before it is clicked -->
     <div class="card-content activator">
-      <span class="card-title grey-text text-darken-4" style="line-height:150%">{{title}}</span>
+      <span class="flow-text grey-text text-darken-4" style="line-height:150%">{{title}}</span>
       <p class="grey-text">{{author}}</p>
     </div>
     <!-- the content that's revealed when the card is clicked -->
@@ -47,9 +47,9 @@
         {{#if messageSent}}
           <span class="green-text">MESSAGE SENT</span>
         {{else}} {{#if myBook}}
-          <a class="remove-book blue-text" href="#">REMOVE BOOK</a>
+          <a href="#" class="remove-book blue-text">REMOVE BOOK</a>
         {{else}}
-          <a class="send-message" href="#">CONTACT SELLER</a>
+          <a href="#" class="send-message">CONTACT SELLER</a>
         {{/if}} {{/if}}
       </div>
     </div>
