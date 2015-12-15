@@ -5,38 +5,40 @@
     <div class="row">
       <h2 class="header light center">Search for a Book</h2>
     </div>
-      {{> searchBox}}
-    <br><br>
   </div>
+  {{> searchBox}}
 </template>
 
 <template name="searchBox">
   <!-- the search box itself -->
   <div class="row">
-    {{> EasySearch.Input index=index attributes=inputAttributes }}
+    {{> EasySearch.Input inputParameters}}
   </div>
 
   <div class="flex-text row center">
     <!-- if no input is entered, shows an example search term -->
-    {{#EasySearch.IfInputEmpty index=index }}
+    {{#EasySearch.IfInputEmpty index=index}}
       Example: "Engaging God's World"
     {{else}}
       <!-- if currently searching, show a spinner -->
-      {{#EasySearch.IfSearching index=index }}
+      {{#EasySearch.IfSearching index=index}}
         {{> spinner}}
       <!-- otherwise, shows the result count -->
       {{else}}
         {{resultsCount}}
-      {{/EasySearch.IfSearching }}
+      {{/EasySearch.IfSearching}}
     {{/EasySearch.IfInputEmpty}}
   </div>
 
   <!-- does the actual search, probably broken -->
   <div class="row">
-    {{#EasySearch.Each index=index }}
+    {{#EasySearch.Each index=index}}
       <div class="col s12 m6 l4">{{> card}}</div>
     {{/EasySearch.Each}}
   </div>
 
-  <!-- pagination -->
+  <div class="center">
+    <!-- loads more book results -->
+    {{> EasySearch.LoadMore loadMoreParameters}}
+  </div>
 </template>

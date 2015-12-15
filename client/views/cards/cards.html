@@ -33,15 +33,23 @@
     </div>
     <!-- the initial content of the card before it is clicked -->
     <div class="card-content activator">
-      <span class="flow-text grey-text text-darken-4" style="line-height:150%">{{title}}</span>
+      <span class="card-title grey-text text-darken-4" style="line-height:150%">
+        {{title}}
+      </span>
       <p class="grey-text">{{author}}</p>
     </div>
     <!-- the content that's revealed when the card is clicked -->
     <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4 activator">{{> iconClose}}{{title}}</span>
-      <p class="grey-text">Author: {{author}}<br>Edition: {{edition}}<br>ISBN: {{isbn}}</p>
+      <span class="card-title grey-text text-darken-4 activator">
+        {{> iconClose}}{{title}}
+      </span>
+      <p class="grey-text">
+        Author: {{checkAvailable author}}<br>
+        Edition: {{checkAvailable edition}}<br>
+        ISBN: {{checkAvailable isbn}}
+      </p>
       <p class="grey-text">{{comment}}</p>
-      <p class="green-text">${{price}}</p>
+      <p class="green-text">{{formatPrice store_price}}</p>
       <!-- the footer of the revealed card -->
       <div class="card-action">
         {{#if messageSent}}
@@ -60,9 +68,3 @@
 <template name="iconClose">
   <i class="material-icons right" style="cursor:pointer">close</i>
 </template>
-
-<!-- just some temporary placeholder text for the card-reveal -->
-<template name="placeholderText">
-  <p>Here is some more information about this product that is only revealed once clicked on.</p>
-</template>
-

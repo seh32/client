@@ -1,14 +1,27 @@
 //Basic helper functions for search
 Template.searchBox.helpers({
-    inputAttributes: function () {
+    inputParameters: function () {
         return {
-            'class': 'easy-search-input col s8 offset-s2', 
-            'placeholder': 'Start searching...',
-            'style': 'font-size: 24px'
-        };
+            index: BooksIndex,
+            timeout: 250,
+            attributes: {
+                class: 'col s8 offset-s2',
+                placeholder: 'Start searching...',
+                style: 'font-size: 24px'
+            }
+        }
+    },
+    loadMoreParameters: function () {
+        return {
+            index: BooksIndex,
+            content: 'load more',
+            attributes: {
+                'class': 'btn grey waves-effect'
+            }
+        }
     },
     books: function () {
-        return Books.find({}, { sort: { price: -1, name: 1 } });
+        return Books.find({}, { sort: { price: -1, name: 1 }});
     },
     index: function () {
         return BooksIndex;

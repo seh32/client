@@ -8,6 +8,6 @@ To run CalvinBookshelf on local host in this phase of development you need to:
 
 1. Enter admin user and password credentials under `bindCn` and `bindPassword` in the config/settings.json file.
 
-2. Run meteor using `meteor --settings lib/settings.json`
+2. Run meteor using `meteor --settings settings.json`
 
 Alternatively, checkout the deployed prototype at calvinbookshelf.meteor.com
