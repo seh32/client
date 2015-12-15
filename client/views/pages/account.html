@@ -5,18 +5,18 @@
       <h3 class="header center-align">My Books:</h3>
       {{#if currentUser}}
         {{#if Template.subscriptionsReady}}
-		    <div class="row">
-		      {{#each books}}
-		      	<!--cards until we implement new display method-->
-		        <div class="col s12 m6 l4">{{> card}}</div>
-		      {{/each}}
-		    </div>
-  		  {{else}}
-    		  {{> spinner}}
-  		  {{/if}}
+          <div class="row">
+            {{#each books}}
+              <!--cards until we implement new display method-->
+              <div class="col s12 m6 l4">{{> card}}</div>
+            {{/each}}
+          </div>
         {{else}}
-        <h5>Oh no! You're not logged in. Please log in to see your books.</h5>
+          {{> spinner}}
         {{/if}}
+      {{else}}
+        <h5>Oh no! You're not logged in. Please log in to see your books.</h5>
+      {{/if}}
     </div>
   </div>
 </template>

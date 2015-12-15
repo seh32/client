@@ -1,16 +1,16 @@
 <!-- Website Header. Contains Buy and Sell links.  -->
 <template name="header">
   <nav class="top-nav cyan">
-      <a href="{{pathFor route='home'}}" class="brand-logo left">
-        <img class="responsive-img" src="images/Calvin Bookshelf Branding_White Text.png" style="max-height: 54px; padding: 6px; vertical-align: middle;">
-      </a>
-		<!-- Nav Menu -->
-		<ul class="right">
-			<li><a href="{{pathFor route='sell'}}" class="hide-on-med-and-down">Sell Book</a></li>
-			<li><a href="{{pathFor route='faq'}}" class="hide-on-med-and-down">Help</a></li>
-			{{> menuLogin hide="hide-on-med-and-down"}}
-			<li>{{> menuButton}}{{> menuOptions}}</li>
-      </ul>
+    <a href="{{pathFor route='home'}}" class="brand-logo left">
+      <img class="responsive-img" src="images/Calvin Bookshelf Branding_White Text.png" style="max-height: 54px; padding: 6px; vertical-align: middle;">
+    </a>
+    <!-- Nav Menu -->
+    <ul class="right">
+      <li><a href="{{pathFor route='sell'}}" class="hide-on-med-and-down">Sell Book</a></li>
+      <li><a href="{{pathFor route='faq'}}" class="hide-on-med-and-down">Help</a></li>
+      {{> menuLogin hide="hide-on-med-and-down"}}
+      <li>{{> menuButton}}{{> menuOptions}}</li>
+    </ul>
   </nav>
   {{> loginModal}}
 </template>
@@ -23,18 +23,18 @@
 
 <template name="menuOptions">
   <ul id="menu" class="dropdown-content">
-		<li><a href="{{pathFor route='sell'}}">Sell</a></li>
-		<li><a href="{{pathFor route='faq'}}">Help</a></li>
-		<li class="divider"></li>
-		{{> menuLogin}}
+    <li><a href="{{pathFor route='sell'}}">Sell</a></li>
+    <li><a href="{{pathFor route='faq'}}">Help</a></li>
+    <li class="divider"></li>
+    {{> menuLogin}}
   </ul>
 </template>
 
 <template name="menuLogin">
-	{{#if currentUser}}
-		<li><a href="{{pathFor route='account'}}" class="{{hide}}">My Account</a></li>
-		<li><a href="#" onClick="Meteor.logout()" class="{{hide}}">Logout</a></li>
-	{{else}}
-		<li><a href="#" name="login" class="{{hide}}">Sign in</a></li>
-	{{/if}}
+  {{#if currentUser}}
+    <li><a href="{{pathFor route='account'}}" class="{{hide}}">My Account</a></li>
+    <li><a href="#" onClick="Meteor.logout()" class="{{hide}}">Logout</a></li>
+  {{else}}
+    <li><a href="#" name="login" class="{{hide}}">Sign in</a></li>
+  {{/if}}
 </template>

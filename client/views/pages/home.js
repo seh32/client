@@ -15,15 +15,12 @@ Template.searchBox.helpers({
     },
     resultsCount: function () {
         var count = BooksIndex.getComponentDict().get('count');
-        if (count === 0) {
+        if (count === 0)
             return "No results found.";
-        } 
-        else if (count === 1) {
+        else if (count === 1)
             return String(count) + " result found";
-        } 
-        else {
+        else
             return String(count) + " results found";
-        }
     },
     booksIndex: () => Template.BooksIndex
 });
